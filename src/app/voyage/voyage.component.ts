@@ -9,6 +9,8 @@ import {HttpClient} from "@angular/common/http";
 export class VoyageComponent {
 
   private _travel: any;
+  private _isLoading: boolean;
+
   private _http: HttpClient;
 
   /**
@@ -17,8 +19,16 @@ export class VoyageComponent {
    */
   constructor(private http: HttpClient) {
     this._travel = {} as any;
+    this._isLoading = true;
     this._http = http;
     this.loadDatas();
+  }
+
+  /**
+   * Returns the value of the boolean isLoading
+   */
+  get isLoading() {
+    return this._isLoading;
   }
 
   /**
@@ -34,6 +44,7 @@ export class VoyageComponent {
   private loadDatas() {
     this._http.get<any[]>('https://www.n-et-c.fr/api/v1/travel', ).subscribe(data => {
       this._travel = data;
+      this._isLoading = false;
     });
   }
 

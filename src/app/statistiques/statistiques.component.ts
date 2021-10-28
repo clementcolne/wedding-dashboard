@@ -2,23 +2,23 @@ import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Component({
-  selector: 'app-guests',
-  templateUrl: './guests.component.html',
-  styleUrls: ['./guests.component.css']
+  selector: 'app-statistiques',
+  templateUrl: './statistiques.component.html',
+  styleUrls: ['./statistiques.component.css']
 })
-export class GuestsComponent {
+export class StatistiquesComponent {
 
-  private _guests: any;
+  private _travel: any;
   private _isLoading: boolean;
 
   private _http: HttpClient;
 
   /**
-   * Constructor of GuestsComponent
+   * Constructor of VoyageComponent
    * @param http HttpClient
    */
   constructor(private http: HttpClient) {
-    this._guests = {} as any;
+    this._travel = {} as any;
     this._isLoading = true;
     this._http = http;
     this.loadDatas();
@@ -32,18 +32,22 @@ export class GuestsComponent {
   }
 
   /**
-   * Returns the value of guests
+   * Returns the value of travel
    */
-  public get guests() {
-    return this._guests;
+  public get nbTravels() {
+    var result = 0;
+    for(let i = 0 ; i < this._travel.length ; i++) {
+      result += this._travel[i].nb_participants;
+    }
+    return result;
   }
 
   /**
    * Gets the data from the API
    */
   private loadDatas() {
-    this._http.get<any[]>('https://www.n-et-c.fr/api/v1/guests', ).subscribe(data => {
-      this._guests = data;
+    this._http.get<any[]>('https://www.n-et-c.fr/api/v1/travel', ).subscribe(data => {
+      this._travel = data;
       this._isLoading = false;
     });
   }

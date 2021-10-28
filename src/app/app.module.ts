@@ -16,28 +16,32 @@ import {MatTableModule} from "@angular/material/table";
 import { VoyageComponent } from './voyage/voyage.component';
 import { GuestsComponent } from './guests/guests.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { StatistiquesComponent } from './statistiques/statistiques.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     VoyageComponent,
-    GuestsComponent
+    GuestsComponent,
+    StatistiquesComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatListModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatSidenavModule,
-    NgbModule,
-    HttpClientModule,
-    MatTableModule,
-    MatTabsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatListModule,
+        MatToolbarModule,
+        MatGridListModule,
+        MatSidenavModule,
+        NgbModule,
+        HttpClientModule,
+        MatTableModule,
+        MatTabsModule,
+        MatProgressSpinnerModule
+    ],
   providers: [],
   bootstrap: [HomeComponent]
 })
