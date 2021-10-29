@@ -32,10 +32,9 @@ export class VoyageComponent {
   }
 
   /**
-   * Returns the value of travel
+   * Returns the array which contains the peoples who booked for the travel
    */
   public get travel() {
-    // create a copy of the array
     let result = [];
     for(let i = 0 ; i < this._travel.length ; i++) {
       if(this._travel[i].nb_participants > 0) {
