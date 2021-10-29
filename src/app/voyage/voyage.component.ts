@@ -35,7 +35,14 @@ export class VoyageComponent {
    * Returns the value of travel
    */
   public get travel() {
-    return this._travel;
+    // create a copy of the array
+    let result = [];
+    for(let i = 0 ; i < this._travel.length ; i++) {
+      if(this._travel[i].nb_participants > 0) {
+        result.push(this._travel[i]);
+      }
+    }
+    return result;
   }
 
   /**
