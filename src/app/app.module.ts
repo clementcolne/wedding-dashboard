@@ -18,6 +18,8 @@ import { GuestsComponent } from './guests/guests.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { StatistiquesComponent } from './statistiques/statistiques.component';
+import { SortformComponent } from './sortform/sortform.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -25,23 +27,25 @@ import { StatistiquesComponent } from './statistiques/statistiques.component';
     HomeComponent,
     VoyageComponent,
     GuestsComponent,
-    StatistiquesComponent
+    StatistiquesComponent,
+    SortformComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatListModule,
-        MatToolbarModule,
-        MatGridListModule,
-        MatSidenavModule,
-        NgbModule,
-        HttpClientModule,
-        MatTableModule,
-        MatTabsModule,
-        MatProgressSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatListModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatSidenavModule,
+    NgbModule,
+    HttpClientModule,
+    MatTableModule,
+    MatTabsModule,
+    MatProgressSpinnerModule,
+    MatRadioModule
+  ],
   providers: [],
   bootstrap: [HomeComponent]
 })

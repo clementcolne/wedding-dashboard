@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  private _sort: any;
+
   constructor() {
+    this._sort = 'all';
+  }
+
+  public sortGuests($event: any) {
+    this._sort = $event;
+  }
+
+  public get sort() {
+    return this._sort;
   }
 
 }
