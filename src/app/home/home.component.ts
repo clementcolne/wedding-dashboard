@@ -9,14 +9,24 @@ export class HomeComponent {
 
   private _sort: any;
 
+  /**
+   * Constructor of HomeComponent
+   */
   constructor() {
     this._sort = 'all';
   }
 
+  /**
+   * gets the from the child event
+   * @param $event value of the event
+   */
   public sortGuests($event: any) {
     this._sort = $event;
   }
 
+  /**
+   * Returns the value of this._sort
+   */
   public get sort() {
     return this._sort;
   }

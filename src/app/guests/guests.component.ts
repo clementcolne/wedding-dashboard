@@ -11,7 +11,6 @@ export class GuestsComponent {
   private _guests: any;
   private _guestsCopy: any;
   private _isLoading: boolean;
-  private _sortGuests;
 
   private _http: HttpClient;
 
@@ -24,20 +23,26 @@ export class GuestsComponent {
     this._guestsCopy = [] as any;
     this._isLoading = true;
     this._http = http;
-    this._sortGuests = 'all';
     this.loadDatas();
   }
 
+  /**
+   * Gets the value of the radio button from the parent
+   * @param sortValue
+   */
   @Input()
-  public set sortGuests(sort: any) {
-    this._sortGuests = sort;
-    this._sort();
+  public set sortGuests(sortValue: any) {
+    this._sort(sortValue);
   }
 
-  private _sort() {
+  /**
+   * Sort the array of guests depending the parameter
+   * @param sortValue type of sort (all, presents or absents)
+   */
+  private _sort(sortValue: string) {
     // resetting array;
-    this._guests = [this._sortGuests.length] as any;
-    switch (this._sortGuests) {
+    this._guests = [this._guestsCopy.length] as any;
+    switch (sortValue) {
       case 'all':
         // request all guests
         this._guests = this._guestsCopy;
