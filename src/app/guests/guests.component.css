@@ -5,3 +5,11 @@ table {
 mat-spinner {
   margin:0 auto;
 }
+
+.green-color {
+  color: #71b73b;
+}
+
+.red-color {
+  color: #ff9243;
+}

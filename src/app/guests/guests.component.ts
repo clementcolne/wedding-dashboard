@@ -42,7 +42,7 @@ export class GuestsComponent {
    * Gets the data from the API
    */
   private loadDatas() {
-    this._http.get<any[]>('https://www.n-et-c.fr/api/v1/guests', ).subscribe(data => {
+    this._http.get<any[]>('https://www.n-et-c.fr/api/v1/presence', ).subscribe(data => {
       this._guests = data;
       this._isLoading = false;
     });
