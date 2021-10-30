@@ -10,7 +10,10 @@ export class StatistiquesComponent {
 
   private _travel: any;
   private _guests: any;
-  private _isLoading: boolean;
+
+  // booleans for the spinners
+  private _isLoadingTravel: boolean;
+  private _isLoadingWedding: boolean;
 
   private _http: HttpClient;
 
@@ -21,16 +24,24 @@ export class StatistiquesComponent {
   constructor(private http: HttpClient) {
     this._travel = {} as any;
     this._guests = {} as any;
-    this._isLoading = true;
+    this._isLoadingTravel = true;
+    this._isLoadingWedding = true;
     this._http = http;
     this.loadDatas();
   }
 
   /**
-   * Returns the value of the boolean isLoading
+   * Returns the value of the boolean isLoadingTravel
    */
-  get isLoading() {
-    return this._isLoading;
+  get isLoadingTravel() {
+    return this._isLoadingTravel;
+  }
+
+  /**
+   * Returns the value of the boolean isLoadingWedding
+   */
+  get isLoadingWedding() {
+    return this._isLoadingWedding;
   }
 
   /**
@@ -61,9 +72,11 @@ export class StatistiquesComponent {
   private loadDatas() {
     this._http.get<any[]>('https://www.n-et-c.fr/api/v1/travel', ).subscribe(data => {
       this._travel = data;
+      this._isLoadingTravel = false;
     });
     this._http.get<any[]>('https://www.n-et-c.fr/api/v1/presence', ).subscribe(data => {
       this._guests = data;
+      this._isLoadingWedding = false;
     });
   }
 
